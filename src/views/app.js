@@ -3,12 +3,14 @@ var AppView = Backbone.View.extend({
   el: '#app',
 
   initialize: function() {
-    var videotests = new Videos();
+    this.videos = new Videos(window.exampleVideoData);
+
     //this.videos = new Videos();
-    videotests.fetch().then(function() {
-      console.log('test');
-      console.log(videotests.length);
-    });
+
+    // videotests.fetch().then(function() {
+    //   console.log('test');
+    //   console.log(videotests.length);
+    // });
 
     this.render();
     //console.log(this.videos.id)
@@ -20,6 +22,10 @@ var AppView = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template());
+    //render a new videolistview
+    console.log(this.videos);
+    new VideoListView({el: $('.list'), collection: this.videos}).render();
+
     return this;
     //render videolist, video listentry, videoplayer view
   },
