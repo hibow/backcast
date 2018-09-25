@@ -22,3 +22,7 @@ var VideoListView = Backbone.View.extend({
   template: templateURL('src/templates/videoList.html')
 
 });
+
+//1.render with example data
+//2. render with API
+//3. searchView
