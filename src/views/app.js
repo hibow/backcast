@@ -9,16 +9,15 @@ var AppView = Backbone.View.extend({
     this.render();
   },
   helpfunc: function() {
-  //assign the first item
     if (this.videos.length > 0) {
-    this.videos.at(0).select();
+      this.videos.at(0).select();
     }
   },
 
   render: function() {
     this.$el.html(this.template());
     new VideoListView( { el: $('.list'), collection: this.videos }).render();
-    new VideoPlayerView( { el: $('.player'),collection:this.videos, model:this.videos.at(0) }).render();
+    new VideoPlayerView( { el: $('.player'), collection: this.videos, model: this.videos.at(0) }).render();
     new SearchView( { el: $('.search'), collection: this.videos }).render();
     return this;
   },
